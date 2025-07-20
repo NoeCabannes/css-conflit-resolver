@@ -9,19 +9,15 @@ Marre de recevoir des projets démo de vos développeurs web impossibles à mett
 - Validateur CSS
 
 # Comment utiliser
-## Méthode hors-connexion (recommandé)
+## Méthode en ligne (recommandée)
 
-### 1. Téléchager le code source
+### 1. Initialisation
 
-Téléchargez ou clonez la repository afin d'obtenir une copie sur votre ordinateur.
+Rendez-vous sur le site internet de l'outil avec un navigateur web disposant de sa dernière mise à jour.
+Dans l'onglet "Analyse", ajoutez le code CSS dans les endroits prévus à cet effet.
 
-### 2. Importer le code
+### 2. Place à la magie
 
-Ajoutez l'ensemble du site principal dans le dossier 'site_principal'. Ensuite, faites de même pour le site de démonstration, à mettre dans le dossier 'demo'. À noter que seuls les fichiers HTML et CSS sont utiles.
-
-### 3. Place à la magie
-
-3.1 Ouvrez le fichier 'index.html' dans un navigateur disposant de la dernière mise à jour
 3.2 Allez dans l'onglet "Analyse" -> "Charger l'exemple" -> "Analyser les conflits"
 3.3 Générez les UUID dans la section "Généateur d'UUID"
 3.4 Profitez du CSS modifié sous licence CC0 prêt à être mis en production
