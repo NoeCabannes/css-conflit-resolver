@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Conflict Resolver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="flex items-center justify-between">
+                    <h1 class="app-title">CSS Conflict Resolver</h1>
+                    <button class="btn btn--secondary" id="theme-toggle">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="app-nav">
+            <div class="container">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" data-tab="accueil">🏠 Accueil</button>
+                    <button class="nav-tab" data-tab="analyseur">🔍 Analyseur</button>
+                    <button class="nav-tab" data-tab="generateur">🔧 Générateur UUID</button>
+                    <button class="nav-tab" data-tab="demonstration">🎭 Démonstration</button>
+                    <button class="nav-tab" data-tab="utilitaires">🛠️ Utilitaires</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <div class="container">
+                <!-- Accueil Tab -->
+                <section id="accueil" class="tab-content active">
+                    <div class="welcome-section">
+                        <h2>Résolveur de Conflits CSS</h2>
+                        <p class="lead">Un outil puissant pour détecter et résoudre les conflits de sélecteurs CSS entre différents projets web.</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🔍</div>
+                                <h3>Analyse Automatique</h3>
+                                <p>Détecte automatiquement les sélecteurs CSS communs entre deux projets</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🔧</div>
+                                <h3>Génération UUID</h3>
+                                <p>Génère des identifiants uniques pour remplacer les sélecteurs conflictuels</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">⚡</div>
+                                <h3>Remplacement Intelligent</h3>
+                                <p>Remplace les classes dans CSS, HTML et JavaScript de manière sécurisée</p>
+                            </div>
+                        </div>
+
+                        <div class="process-diagram">
+                            <h3>Comment ça fonctionne</h3>
+                            <div class="process-steps">
+                                <div class="process-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Analyse des Projets</h4>
+                                        <p>Extraction des sélecteurs CSS des deux projets</p>
+                                    </div>
+                                </div>
+                                <div class="process-arrow">→</div>
+                                <div class="process-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Détection des Conflits</h4>
+                                        <p>Identification des sélecteurs communs</p>
+                                    </div>
+                                </div>
+                                <div class="process-arrow">→</div>
+                                <div class="process-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Génération UUID</h4>
+                                        <p>Création d'identifiants uniques</p>
+                                    </div>
+                                </div>
+                                <div class="process-arrow">→</div>
+                                <div class="process-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Remplacement</h4>
+                                        <p>Mise à jour du code de la démo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cta-section">
+                            <button class="btn btn--primary btn--lg" onclick="switchTab('analyseur')">
+                                Commencer l'Analyse
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analyseur Tab -->
+                <section id="analyseur" class="tab-content">
+                    <h2>Analyseur de Conflits CSS</h2>
+                    
+                    <div class="analysis-grid">
+                        <div class="input-section">
+                            <h3>Projet Principal</h3>
+                            <textarea id="css-principal" class="code-textarea" placeholder="Collez votre CSS du projet principal ici..."></textarea>
+                            <button class="btn btn--secondary btn--sm" onclick="loadExamplePrincipal()">Charger Exemple</button>
+                        </div>
+                        
+                        <div class="input-section">
+                            <h3>Projet Démo</h3>
+                            <textarea id="css-demo" class="code-textarea" placeholder="Collez votre CSS de la démo ici..."></textarea>
+                            <button class="btn btn--secondary btn--sm" onclick="loadExampleDemo()">Charger Exemple</button>
+                        </div>
+                    </div>
+
+                    <div class="analysis-controls">
+                        <button class="btn btn--primary" id="analyze-btn" onclick="analyzeConflicts()">
+                            🔍 Analyser les Conflits
+                        </button>
+                    </div>
+
+                    <div id="analysis-results" class="analysis-results hidden">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number" id="total-principal">-</div>
+                                <div class="stat-label">Sélecteurs Principal</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="total-demo">-</div>
+                                <div class="stat-label">Sélecteurs Démo</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="total-conflicts">-</div>
+                                <div class="stat-label">Conflits Détectés</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="conflict-percentage">-</div>
+                                <div class="stat-label">% de Conflits</div>
+                            </div>
+                        </div>
+
+                        <div class="conflicts-section">
+                            <h3>Sélecteurs en Conflit</h3>
+                            <div id="conflicts-list" class="conflicts-list"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Générateur UUID Tab -->
+                <section id="generateur" class="tab-content">
+                    <h2>Générateur d'UUID</h2>
+                    
+                    <div class="generator-controls">
+                        <button class="btn btn--primary" onclick="generateUUIDs()">
+                            🔧 Générer les UUIDs
+                        </button>
+                        <button class="btn btn--secondary" onclick="regenerateUUIDs()">
+                            🔄 Régénérer
+                        </button>
+                    </div>
+
+                    <div id="uuid-mapping" class="uuid-mapping hidden">
+                        <h3>Mapping des Sélecteurs</h3>
+                        <div id="mapping-list" class="mapping-list"></div>
+                        
+                        <div class="mapping-export">
+                            <h4>JSON de Mapping</h4>
+                            <textarea id="mapping-json" class="code-textarea json-preview" readonly></textarea>
+                            <button class="btn btn--secondary" onclick="copyMapping()">📋 Copier JSON</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Démonstration Tab -->
+                <section id="demonstration" class="tab-content">
+                    <h2>Démonstration Avant/Après</h2>
+                    
+                    <div class="demo-grid">
+                        <div class="demo-section">
+                            <h3>CSS Original</h3>
+                            <div class="code-preview">
+                                <pre id="css-original"></pre>
+                            </div>
+                            
+                            <h4>HTML Original</h4>
+                            <div class="code-preview">
+                                <pre id="html-original"></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-section">
+                            <h3>CSS Modifié</h3>
+                            <div class="code-preview">
+                                <pre id="css-modified"></pre>
+                            </div>
+                            
+                            <h4>HTML Modifié</h4>
+                            <div class="code-preview">
+                                <pre id="html-modified"></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-controls">
+                        <button class="btn btn--primary" onclick="generateDemo()">
+                            🎭 Générer la Démonstration
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Utilitaires Tab -->
+                <section id="utilitaires" class="tab-content">
+                    <h2>Utilitaires CSS</h2>
+                    
+                    <div class="utilities-grid">
+                        <div class="utility-card">
+                            <h3>Extracteur de Sélecteurs</h3>
+                            <textarea id="css-extract" class="code-textarea" placeholder="Collez votre CSS ici..."></textarea>
+                            <button class="btn btn--primary" onclick="extractSelectors()">Extraire</button>
+                            <div id="extracted-selectors" class="results-list"></div>
+                        </div>
+                        
+                        <div class="utility-card">
+                            <h3>Générateur d'UUID Simple</h3>
+                            <div class="uuid-generator">
+                                <button class="btn btn--primary" onclick="generateSimpleUUID()">Générer UUID</button>
+                                <div class="flex gap-8">
+                                    <input type="text" id="simple-uuid" class="form-control" readonly>
+                                    <button class="btn btn--secondary" onclick="copySimpleUUID()">Copier</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-card">
+                            <h3>Validateur CSS</h3>
+                            <textarea id="css-validate" class="code-textarea" placeholder="Collez votre CSS à valider..."></textarea>
+                            <button class="btn btn--primary" onclick="validateCSS()">Valider</button>
+                            <div id="validation-results" class="validation-results"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Status Bar -->
+        <div id="status-bar" class="status-bar hidden">
+            <div class="container">
+                <div class="status-content">
+                    <span id="status-message"></span>
+                    <button class="status-close" onclick="hideStatus()">×</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

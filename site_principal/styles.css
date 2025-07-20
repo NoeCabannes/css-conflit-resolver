@@ -1,0 +1,52 @@
+
+/* CSS du site principal */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 40px 0;
+}
+
+#main-content {
+    min-height: 500px;
+    background: #f8f9fa;
+}
+
+.sidebar {
+    width: 300px;
+    background: #e9ecef;
+    padding: 20px;
+}
