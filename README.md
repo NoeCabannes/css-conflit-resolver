@@ -1,5 +1,8 @@
 Marre de faire face à des conflits de sélecteurs CSS entre deux projets ? CSS Conflict Resolver est la solution pour vous. Cet outil s'assure à votre place qu'aucun conflit dans les sélecteurs CSS ne demeure entre différents conflits pour vos implémentation en toute sérénité.
 
+<img width="1346" height="648" alt="image" src="https://github.com/user-attachments/assets/18344043-489c-4518-9de8-15fc7f422c12" />
+
+
 # Fonctionnalités
 
 - Analyse de conflits entre différents projets
