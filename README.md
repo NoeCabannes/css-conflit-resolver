@@ -1,4 +1,4 @@
-Marre de recevoir des projets démo de vos développeurs web impossibles à mettre sur votre site ? CSS Conflict Resolver est la solution pour vous. Cet outil s'assure à votre place qu'aucun conflit dans les sélecteurs CSS ne demeure entre différents conflits pour vos implémentation en toute sérénité.
+Marre de faire face à des conflits de sélecteurs CSS entre deux projets ? CSS Conflict Resolver est la solution pour vous. Cet outil s'assure à votre place qu'aucun conflit dans les sélecteurs CSS ne demeure entre différents conflits pour vos implémentation en toute sérénité.
 
 # Fonctionnalités
 
